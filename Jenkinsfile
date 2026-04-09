@@ -6,9 +6,9 @@ pipeline {
     }
 
     environment {
-        SITE_NAME = "jenkinstest"
-        WEB_ROOT  = "/var/www/jenkinstest"
-        NGINX_CONF = "/etc/nginx/sites-available/jenkinstest"
+        SITE_NAME = "/MBJenkinsTest"
+        WEB_ROOT  = "/var/www//MBJenkinsTest"
+        NGINX_CONF = "/etc/nginx/sites-available//MBJenkinsTest"
     }
 
     options {
@@ -19,7 +19,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/kestonbhola/jenkinstest.git/', branch: 'main'
+                git url: 'https://github.com/BerkyTech/MBJenkinsTest.git/', branch: 'main'
             }
         }
 
@@ -43,8 +43,8 @@ pipeline {
             steps {
                 sh '''
                     set -e
-                    sudo apt update
-                    sudo apt install -y nginx
+                   sudo visudo
+                   jenkins ALL=(ALL) NOPASSWD: ALL
                 '''
             }
         }
