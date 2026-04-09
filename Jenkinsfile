@@ -6,9 +6,9 @@ pipeline {
     }
 
     environment {
-        SITE_NAME = "jenkinstest"
-        WEB_ROOT  = "/var/www/jenkinstest"
-        NGINX_CONF = "/etc/nginx/sites-available/jenkinstest"
+        SITE_NAME = "MBJenkinsTest"
+        WEB_ROOT  = "/var/www/MBJenkinsTest"
+        NGINX_CONF = "/etc/nginx/sites-available/MBJenkinsTest"
     }
 
     options {
@@ -19,7 +19,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/kestonbhola/jenkinstest.git/', branch: 'main'
+                git url: 'https://github.com/BerkyTech/MBJenkinsTest.git/', branch: 'main'
             }
         }
 
@@ -97,7 +97,7 @@ server {
 }
 EOF
 
-                    sudo ln -sf "$NGINX_CONF" /etc/nginx/sites-enabled/jenkinstest
+                    sudo ln -sf "$NGINX_CONF" /etc/nginx/sites-enabled/MBJenkinsTest
                     sudo rm -f /etc/nginx/sites-enabled/default
 
                     sudo nginx -t
